@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>V-music</title>
+  </head>
+  <body>
+    This is server
+    <form enctype="multipart/form-data">
+      <input type="file" id="file" accept="image/*" multiple />
+      <button id="btn" >submit</button>
+    </form>
+  </body>
+  <script>
+    const btn = document.getElementById("btn");
+    btn.addEventListener("click", async (e) => {
+        e.preventDefault()
+      const files = document.getElementById('file').files;
+      const formData = new FormData();
+      Object.keys(files).forEach((key) => {
+        formData.append(files.item(key).name, files.item(key));
+      });
+      for (const value of formData.values()) {
+        console.log('value: ',value);
+      }
+      const res = await fetch("http://localhost:3001/upload-songs", {
+        method: "POST",
+        body: formData,
+      });
+      console.log("res: ", res);
+    });
+  </script>
+</html>

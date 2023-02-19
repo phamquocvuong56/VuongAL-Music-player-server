@@ -1,0 +1,1 @@
+const CLOUDINARY_URL= 'cloudinary://352445916589559:3mV00o2JFetP2-X9LPMvi_A6j4I@vmilktea'
