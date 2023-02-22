@@ -23,7 +23,6 @@ app.post(
   async (req, res) => {
     try {
       const files = Object.keys(req.files);
-      console.log("den day:", files);
       Object.keys(req.files).forEach((key) => {
         req.files[key].mv(
           path.join(__dirname, "files", req.files[key].name),
