@@ -18,7 +18,8 @@ app.post(
   "/upload-songs",
   fileUpload({ createParentPath: true }),
   filesPayloadExists,
-  fileExtLimiter([".mp3", ".png", ".jpg", "jfif"]),
+  fileExtLimiter(),
+  // fileExtLimiter([".mp3", ".png", ".jpg", "jfif"]),
   fileSizeLimiter,
   async (req, res) => {
     try {
